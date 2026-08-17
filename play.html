@@ -8,50 +8,292 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;background:linear-gradient(180deg,#eefbff,#fffaf0);min-height:100vh;color:#263238}
 .wrap{width:min(760px,95%);margin:0 auto;padding:14px 0 36px}
-.top{display:flex;align-items:center;gap:10px;margin-bottom:10px}.back{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:16px;background:#fff;color:#475569;text-decoration:none;font-size:28px;font-weight:900;box-shadow:0 6px 18px rgba(30,41,59,.1)}
-.top-title{font-weight:900;font-size:20px;flex:1;text-align:center;padding-right:48px}.progress{height:12px;background:#dfe8ef;border-radius:999px;overflow:hidden;margin-bottom:12px}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#38bdf8);transition:width .3s}
-.card{background:rgba(255,255,255,.97);border-radius:28px;padding:22px;box-shadow:0 16px 40px rgba(40,64,84,.12);margin-bottom:14px}.scene{text-align:center}.badge{display:inline-block;border-radius:999px;padding:7px 13px;background:#f1f5f9;color:#64748b;font-weight:900;font-size:13px;margin-bottom:7px}
-h1{font-size:clamp(25px,7vw,36px);margin:7px 0 9px}.story{font-size:clamp(17px,4.5vw,21px);color:#52606d;line-height:1.7;margin:0 auto 18px;max-width:600px;font-weight:700}.big-items{font-size:clamp(35px,10vw,55px);line-height:1.45;letter-spacing:4px;min-height:80px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px}.plus{font-size:42px;font-weight:900;color:#94a3b8;margin:0 10px}
-.answer-box{margin:15px auto 0;background:#f0fdf4;border:3px solid #86efac;border-radius:20px;padding:16px;max-width:600px;display:none}.answer-main{font-size:clamp(28px,8vw,42px);font-weight:900;color:#166534}.answer-sub{font-size:16px;color:#3f6b4c;font-weight:750;line-height:1.7;margin-top:8px}
-.pool{background:#fff7ed;border:3px dashed #fdba74;border-radius:22px;padding:13px;margin:10px auto 14px;max-width:620px}.pool-title{font-weight:900;color:#9a3412;margin-bottom:8px}.pool-items{min-height:62px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px}.drag-item{width:54px;height:54px;display:inline-grid;place-items:center;background:#fff;border-radius:15px;font-size:35px;box-shadow:0 5px 12px rgba(124,74,20,.17);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:transform .12s,opacity .12s}.drag-item:active{transform:scale(1.08);cursor:grabbing}.drag-ghost{position:fixed;z-index:9999;width:62px;height:62px;display:grid;place-items:center;font-size:42px;background:#fff;border:3px solid #38bdf8;border-radius:18px;box-shadow:0 12px 28px rgba(15,23,42,.25);pointer-events:none;transform:translate(-50%,-50%) rotate(-5deg)}
-.people{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px auto;max-width:650px}.person{min-width:112px;flex:1 1 112px;max-width:160px;background:#f8fafc;border:3px solid #cbd5e1;border-radius:22px;padding:11px 8px;min-height:165px;transition:.15s}.person.drop-ready{border-color:#38bdf8;background:#effaff;transform:scale(1.035)}.person.full{border-color:#86efac;background:#f0fdf4}.face{font-size:43px;margin-bottom:4px}.person-label{font-size:12px;color:#64748b;font-weight:800}.person-items{display:flex;justify-content:center;flex-wrap:wrap;gap:2px;font-size:27px;line-height:1.25;min-height:42px;margin-top:5px}
-.feedback{min-height:34px;font-size:17px;font-weight:900;color:#0369a1;margin:7px 0}.shake{animation:shake .25s linear 2}@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-.equation{font-size:clamp(31px,9vw,48px);font-weight:950;letter-spacing:.03em;margin:10px 0;color:#4338ca}.meaning{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.meaning>div{border-radius:15px;padding:11px 6px;font-weight:850;font-size:14px;line-height:1.45}.meaning .all{background:#fff7ed;color:#9a3412}.meaning .groups{background:#eff6ff;color:#1d4ed8}.meaning .each{background:#f0fdf4;color:#166534}
-.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}button{border:0;border-radius:18px;padding:15px 20px;font-size:18px;font-weight:900;cursor:pointer;min-height:56px}button:active{transform:scale(.98)}.primary{background:#4f46e5;color:#fff}.share-btn{background:#0ea5e9;color:#fff;font-size:20px}.next{background:#16a34a;color:#fff}.celebrate{font-size:40px;min-height:50px;margin:8px 0 0}.mini-note{font-size:14px;color:#64748b;font-weight:700;line-height:1.6;margin-top:10px}.groups-demo{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:15px 0}.group-demo{background:#f5f3ff;border:3px solid #c4b5fd;border-radius:18px;padding:12px;min-width:105px;font-size:29px}.group-demo small{display:block;font-size:12px;font-weight:900;color:#6d28d9;margin-bottom:5px}
-@media(max-width:520px){.card{padding:17px}.person{min-width:92px;flex-basis:92px;min-height:148px}.face{font-size:36px}.person-items{font-size:24px}.meaning{grid-template-columns:1fr}.top-title{font-size:17px}.drag-item{width:50px;height:50px;font-size:32px}}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.back{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:16px;background:#fff;color:#475569;text-decoration:none;font-size:28px;font-weight:900;box-shadow:0 6px 18px rgba(30,41,59,.1)}
+.top-title{font-weight:900;font-size:20px;flex:1;text-align:center;padding-right:48px}
+.progress{height:12px;background:#dfe8ef;border-radius:999px;overflow:hidden;margin-bottom:12px}
+.progress>div{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#38bdf8);transition:width .3s}
+.card{background:rgba(255,255,255,.97);border-radius:28px;padding:22px;box-shadow:0 16px 40px rgba(40,64,84,.12);margin-bottom:14px}
+.scene{text-align:center}
+.badge{display:inline-block;border-radius:999px;padding:7px 13px;background:#f1f5f9;color:#64748b;font-weight:900;font-size:13px;margin-bottom:7px}
+h1{font-size:clamp(25px,7vw,36px);margin:7px 0 9px}
+.story{font-size:clamp(17px,4.5vw,21px);color:#52606d;line-height:1.7;margin:0 auto 18px;max-width:600px;font-weight:700}
+.big-items{font-size:clamp(35px,10vw,55px);line-height:1.45;letter-spacing:4px;min-height:80px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px}
+.answer-box{margin:15px auto 0;background:#f0fdf4;border:3px solid #86efac;border-radius:20px;padding:16px;max-width:600px;display:none}
+.answer-main{font-size:clamp(28px,8vw,42px);font-weight:900;color:#166534}
+.answer-sub{font-size:16px;color:#3f6b4c;font-weight:750;line-height:1.7;margin-top:8px}
+.add-sources{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:620px;margin:8px auto 12px}
+.add-source{background:#fff7ed;border:3px solid #fdba74;border-radius:20px;padding:12px;min-height:112px}
+.add-source-title{font-weight:900;color:#9a3412;margin-bottom:8px}
+.add-source-items{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;min-height:58px}
+.add-target{max-width:620px;margin:0 auto 10px;background:#eff6ff;border:4px dashed #93c5fd;border-radius:24px;padding:14px;min-height:145px;transition:.15s}
+.add-target.drop-ready{background:#e0f2fe;border-color:#0ea5e9;transform:scale(1.02)}
+.add-target.done{background:#f0fdf4;border-color:#86efac}
+.add-target-title{font-size:18px;font-weight:900;color:#1d4ed8;margin-bottom:8px}
+.add-target-items{display:flex;justify-content:center;flex-wrap:wrap;gap:5px;font-size:34px;min-height:52px;align-items:center}
+.pool{background:#fff7ed;border:3px dashed #fdba74;border-radius:22px;padding:13px;margin:10px auto 14px;max-width:620px}
+.pool-title{font-weight:900;color:#9a3412;margin-bottom:8px}
+.pool-items{min-height:62px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px}
+.drag-item{width:54px;height:54px;display:inline-grid;place-items:center;background:#fff;border-radius:15px;font-size:35px;box-shadow:0 5px 12px rgba(124,74,20,.17);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:transform .12s,opacity .12s}
+.drag-item:active{transform:scale(1.08);cursor:grabbing}
+.drag-ghost{position:fixed;z-index:9999;width:62px;height:62px;display:grid;place-items:center;font-size:42px;background:#fff;border:3px solid #38bdf8;border-radius:18px;box-shadow:0 12px 28px rgba(15,23,42,.25);pointer-events:none;transform:translate(-50%,-50%) rotate(-5deg)}
+.people{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px auto;max-width:650px}
+.person{min-width:112px;flex:1 1 112px;max-width:160px;background:#f8fafc;border:3px solid #cbd5e1;border-radius:22px;padding:11px 8px;min-height:165px;transition:.15s}
+.person.drop-ready{border-color:#38bdf8;background:#effaff;transform:scale(1.035)}
+.person.full{border-color:#86efac;background:#f0fdf4}
+.face{font-size:43px;margin-bottom:4px}
+.person-label{font-size:12px;color:#64748b;font-weight:800}
+.person-items{display:flex;justify-content:center;flex-wrap:wrap;gap:2px;font-size:27px;line-height:1.25;min-height:42px;margin-top:5px}
+.feedback{min-height:34px;font-size:17px;font-weight:900;color:#0369a1;margin:7px 0}
+.shake{animation:shake .25s linear 2}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.equation{font-size:clamp(31px,9vw,48px);font-weight:950;letter-spacing:.03em;margin:10px 0;color:#4338ca}
+.meaning{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.meaning>div{border-radius:15px;padding:11px 6px;font-weight:850;font-size:14px;line-height:1.45}
+.meaning .all{background:#fff7ed;color:#9a3412}.meaning .groups{background:#eff6ff;color:#1d4ed8}.meaning .each{background:#f0fdf4;color:#166534}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+button{border:0;border-radius:18px;padding:15px 20px;font-size:18px;font-weight:900;cursor:pointer;min-height:56px}
+button:active{transform:scale(.98)}
+.primary{background:#4f46e5;color:#fff}.share-btn{background:#0ea5e9;color:#fff;font-size:20px}.next{background:#16a34a;color:#fff}
+.celebrate{font-size:40px;min-height:50px;margin:8px 0 0}
+.mini-note{font-size:14px;color:#64748b;font-weight:700;line-height:1.6;margin-top:10px}
+.groups-demo{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:15px 0}
+.group-demo{background:#f5f3ff;border:3px solid #c4b5fd;border-radius:18px;padding:12px;min-width:105px;font-size:29px}
+.group-demo small{display:block;font-size:12px;font-weight:900;color:#6d28d9;margin-bottom:5px}
+@media(max-width:520px){
+  .card{padding:17px}.person{min-width:92px;flex-basis:92px;min-height:148px}.face{font-size:36px}.person-items{font-size:24px}.meaning{grid-template-columns:1fr}.top-title{font-size:17px}.drag-item{width:50px;height:50px;font-size:32px}.add-source{padding:10px}.add-source-title{font-size:14px}.add-target{min-height:132px}
+}
 </style>
 </head>
 <body>
-<div class="wrap"><div class="top"><a class="back" href="index.html">‹</a><div class="top-title" id="topTitle">はじめから</div></div><div class="progress"><div id="bar"></div></div><main class="card scene" id="scene"></main></div>
+<div class="wrap">
+  <div class="top"><a class="back" href="index.html">‹</a><div class="top-title" id="topTitle">はじめから</div></div>
+  <div class="progress"><div id="bar"></div></div>
+  <main class="card scene" id="scene"></main>
+</div>
 <script>
 const params=new URLSearchParams(location.search);
 const mode=params.get('mode')==='share'?'share':'learn';
 const scene=document.getElementById('scene'),bar=document.getElementById('bar');
 document.getElementById('topTitle').textContent=mode==='share'?'🍬 わけわけゲーム':'🌟 はじめから';
+
 const icons=['🐰','🐶','🐱','🐼','🦊'];
-const shareProblems=[{total:4,people:2,item:'🍪'},{total:6,people:2,item:'🍓'},{total:6,people:3,item:'🍬'},{total:8,people:4,item:'🍎'},{total:8,people:2,item:'🧁'},{total:9,people:3,item:'🍇'},{total:10,people:5,item:'⭐'},{total:10,people:2,item:'🍒'},{total:12,people:3,item:'🥕'},{total:12,people:4,item:'🍩'}];
-const learnKey='warizanLearnStageV2';
-let learnStage=Math.min(Number(localStorage.getItem(learnKey)||0),4),state={};
+const shareProblems=[
+  {total:4,people:2,item:'🍪'},{total:6,people:2,item:'🍓'},{total:6,people:3,item:'🍬'},
+  {total:8,people:4,item:'🍎'},{total:8,people:2,item:'🧁'},{total:9,people:3,item:'🍇'},
+  {total:10,people:5,item:'⭐'},{total:10,people:2,item:'🍒'},{total:12,people:3,item:'🥕'},{total:12,people:4,item:'🍩'}
+];
+const learnKey='warizanLearnStageV3';
+let learnStage=Math.min(Number(localStorage.getItem(learnKey)||0),4),state={},addState={};
+
 function repeat(icon,n){return Array.from({length:n},()=>icon).join('')}
 function button(label,cls='primary',id='action'){return `<button class="${cls}" id="${id}">${label}</button>`}
 function bind(id,fn){const el=document.getElementById(id);if(el)el.addEventListener('click',fn)}
 function setProgress(v){bar.style.width=`${Math.max(0,Math.min(100,v))}%`}
-function renderLearn(){setProgress((learnStage/5)*100);if(learnStage===0)renderAdd();else if(learnStage===1)startShare({total:4,people:2,item:'🍪'},true,1);else if(learnStage===2)startShare({total:6,people:3,item:'🍓'},true,2);else if(learnStage===3)renderEquationMeaning();else renderMultiplyLink()}
-function finishLearnStage(){learnStage++;localStorage.setItem(learnKey,String(Math.min(learnStage,5)));if(learnStage>=5)renderLearnFinish();else renderLearn()}
-function renderAdd(){scene.innerHTML=`<div class="badge">1 / 5　まずは「ぜんぶ」を見る</div><h1>りんごを いっしょにしよう</h1><p class="story">3こ と 2こ。いっしょにしたら ぜんぶで なんこかな？</p><div class="big-items"><span>🍎🍎🍎</span><span class="plus">＋</span><span>🍎🍎</span></div><div class="actions">${button('いっしょにする！','primary','merge')}</div><div class="answer-box" id="answer"><div class="big-items">🍎🍎🍎🍎🍎</div><div class="answer-main">ぜんぶで 5こ！</div><div class="answer-sub">3こ ＋ 2こ ＝ 5こ。</div><div class="actions">${button('つぎへ →','next','next')}</div></div>`;bind('merge',()=>{document.getElementById('answer').style.display='block';document.getElementById('merge').style.display='none'});bind('next',finishLearnStage)}
-function startShare(problem,isLearn=false,learnIndex=0){state={problem,isLearn,learnIndex,remaining:problem.total,counts:Array(problem.people).fill(0),done:false};renderShareScene()}
-function renderShareScene(){const p=state.problem,badge=state.isLearn?`${state.learnIndex+1} / 5　自分で「わける」`:'わけわけゲーム',title=state.isLearn?(state.learnIndex===1?'おやつを わけてみよう':'みんなに おなじだけ！'):`${p.item}を みんなに わけよう`;scene.innerHTML=`<div class="badge">${badge}</div><h1>${title}</h1><p class="story">${p.total}こを ${p.people}人に、<strong>おなじ数ずつ</strong> あげてみよう。<br>${state.isLearn?'おやつを ゆびでつかんで、あげたい子のところへ動かしてね。':'「1こずつ くばる」を押してね。'}</p><div class="pool"><div class="pool-title">まだ のこっているよ： <span id="remaining">${state.remaining}</span>こ</div><div class="pool-items" id="poolItems">${state.isLearn?'':repeat(p.item,state.remaining)}</div></div><div class="people" id="people"></div><div class="feedback" id="feedback">${state.isLearn?'👇 おやつをつかんで動かそう！':''}</div><div class="celebrate" id="celebrate"></div>${state.isLearn?'':'<div class="actions"><button class="share-btn" id="deal">👋 1こずつ くばる</button></div>'}<div class="answer-box" id="shareAnswer"></div><div class="mini-note">${state.isLearn?'うまく置けなくても大丈夫。何回でも動かせるよ。':'計算はあとから出てくるよ。'}</div>`;renderPeople();if(!state.isLearn)bind('deal',dealRound)}
-function renderPeople(){const p=state.problem,each=p.total/p.people,el=document.getElementById('people');el.innerHTML=state.counts.map((count,i)=>`<div class="person ${count===each?'full':''}" data-person="${i}"><div class="face">${icons[i]}</div><div class="person-label">${i+1}人め</div><div class="person-items">${repeat(p.item,count)||'　'}</div><div class="person-label">${count}こ</div></div>`).join('');document.getElementById('remaining').textContent=state.remaining;const pool=document.getElementById('poolItems');if(state.isLearn)renderDragPool();else if(pool)pool.textContent=repeat(p.item,state.remaining)||'ぜんぶ くばれた！'}
-function renderDragPool(){const pool=document.getElementById('poolItems');if(!pool)return;if(state.remaining===0){pool.innerHTML='<strong>ぜんぶ くばれた！</strong>';return}pool.innerHTML=Array.from({length:state.remaining},(_,i)=>`<span class="drag-item" data-drag="${i}" role="button" aria-label="${state.problem.item}を配る">${state.problem.item}</span>`).join('');document.querySelectorAll('.drag-item').forEach(el=>el.addEventListener('pointerdown',startDrag))}
-function startDrag(e){if(state.done)return;e.preventDefault();const source=e.currentTarget,pointerId=e.pointerId;source.setPointerCapture(pointerId);source.style.opacity='.25';const ghost=document.createElement('div');ghost.className='drag-ghost';ghost.textContent=state.problem.item;document.body.appendChild(ghost);let hover=null;moveGhost(e);function moveGhost(ev){ghost.style.left=ev.clientX+'px';ghost.style.top=ev.clientY+'px';document.querySelectorAll('.person').forEach(x=>x.classList.remove('drop-ready'));const hit=document.elementFromPoint(ev.clientX,ev.clientY);hover=hit&&hit.closest?hit.closest('.person'):null;if(hover)hover.classList.add('drop-ready')}function cleanup(){document.querySelectorAll('.person').forEach(x=>x.classList.remove('drop-ready'));ghost.remove();source.style.opacity='1';source.removeEventListener('pointermove',moveGhost);source.removeEventListener('pointerup',drop);source.removeEventListener('pointercancel',cancel)}function drop(){const target=hover;cleanup();if(target)giveTo(Number(target.dataset.person))}function cancel(){cleanup()}source.addEventListener('pointermove',moveGhost);source.addEventListener('pointerup',drop);source.addEventListener('pointercancel',cancel)}
-function giveTo(i){if(state.done||state.remaining<=0)return;const p=state.problem,each=p.total/p.people,feedback=document.getElementById('feedback');if(state.counts[i]>=each){feedback.textContent=`${icons[i]}は もう${each}こ！ ほかの子にも あげてみよう`;const card=document.querySelector(`[data-person="${i}"]`);if(card){card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),550)}return}state.counts[i]++;state.remaining--;feedback.textContent=`${icons[i]}に 1こ あげたよ！`;renderPeople();if(state.remaining===0)completeShare()}
-function dealRound(){if(state.done)return;const p=state.problem;if(state.remaining<p.people)return;for(let i=0;i<p.people;i++)state.counts[i]++;state.remaining-=p.people;renderPeople();if(state.remaining===0)completeShare()}
-function completeShare(){state.done=true;const deal=document.getElementById('deal');if(deal)deal.style.display='none';document.getElementById('celebrate').textContent='🎉 みんな おなじ！';const p=state.problem,each=p.total/p.people,ans=document.getElementById('shareAnswer');ans.style.display='block';ans.innerHTML=`<div class="answer-main">ひとり ${each}こずつ！</div><div class="answer-sub">${p.total}こを ${p.people}人に同じ数ずつ分けたら、ひとり ${each}こになったね。</div><div class="equation">${p.total} ÷ ${p.people} = ${each}</div><div class="meaning"><div class="all">${p.total}<br>ぜんぶの数</div><div class="groups">${p.people}<br>分ける人数</div><div class="each">${each}<br>ひとり分</div></div><div class="actions">${button(state.isLearn?'つぎへ →':'もう1回！','next','afterShare')}</div>`;bind('afterShare',()=>{if(state.isLearn)finishLearnStage();else{localStorage.setItem('warizanShareStars',String(Number(localStorage.getItem('warizanShareStars')||0)+1));startRandomShare()}})}
-function renderEquationMeaning(){setProgress(60);scene.innerHTML=`<div class="badge">4 / 5　これが「わり算」</div><h1>さっきの「わける」を式にすると…</h1><p class="story">6このいちごを、3人に同じ数ずつ分けたら、ひとり2こだったね。</p><div class="equation">6 ÷ 3 = 2</div><div class="meaning"><div class="all">6<br>ぜんぶの数</div><div class="groups">3<br>分ける人数</div><div class="each">2<br>ひとり分</div></div><div class="answer-box" style="display:block;margin-top:18px"><div class="answer-main">「÷」は、おなじ数ずつ わけるしるし</div><div class="answer-sub">さっき自分の指でやった「わけわけ」と同じことだよ。</div></div><div class="actions">${button('つぎへ →','next','next')}</div>`;bind('next',finishLearnStage)}
-function renderMultiplyLink(){setProgress(80);scene.innerHTML=`<div class="badge">5 / 5　かけ算と つながる</div><h1>かけ算を うしろから見ると？</h1><p class="story">2こずつのグループが3つあるよ。</p><div class="groups-demo"><div class="group-demo"><small>1グループ</small>🍬🍬</div><div class="group-demo"><small>2グループ</small>🍬🍬</div><div class="group-demo"><small>3グループ</small>🍬🍬</div></div><div class="equation">2 × 3 = 6</div><div class="answer-box" style="display:block"><div class="answer-sub">ぜんぶ6こを、3グループに戻すと…</div><div class="equation">6 ÷ 3 = 2</div><div class="answer-main">わり算は、かけ算の「ぎゃく」みたい！</div></div><div class="actions">${button('できた！','next','next')}</div>`;bind('next',finishLearnStage)}
-function renderLearnFinish(){setProgress(100);localStorage.setItem(learnKey,'5');scene.innerHTML=`<div class="badge">ぜんぶ クリア！</div><div style="font-size:72px">🏆</div><h1>わり算の ひみつを見つけた！</h1><p class="story">「ぜんぶの数」を「同じ数ずつ分ける」と、ひとり分が分かる。これがわり算だよ。</p><div class="answer-box" style="display:block"><div class="answer-main">6 ÷ 3 = 2</div></div><div class="actions"><a href="play.html?mode=share" style="text-decoration:none">${button('🍬 わけわけゲームへ','share-btn','dummy1')}</a><a href="challenge.html" style="text-decoration:none">${button('➗ 5問チャレンジ','primary','dummy2')}</a></div><div class="actions">${button('もういちど はじめから','next','again')}</div>`;bind('again',()=>{localStorage.setItem(learnKey,'0');learnStage=0;renderLearn()})}
-function startRandomShare(){setProgress(100);let last=Number(sessionStorage.getItem('lastShareProblem')||-1),idx;do{idx=Math.floor(Math.random()*shareProblems.length)}while(shareProblems.length>1&&idx===last);sessionStorage.setItem('lastShareProblem',String(idx));startShare(shareProblems[idx],false,0)}
-if(mode==='share')startRandomShare();else if(Number(localStorage.getItem(learnKey)||0)>=5)renderLearnFinish();else renderLearn();
+
+function renderLearn(){
+  setProgress((learnStage/5)*100);
+  if(learnStage===0)renderAdd();
+  else if(learnStage===1)startShare({total:4,people:2,item:'🍪'},true,1);
+  else if(learnStage===2)startShare({total:6,people:3,item:'🍓'},true,2);
+  else if(learnStage===3)renderEquationMeaning();
+  else renderMultiplyLink();
+}
+
+function finishLearnStage(){
+  learnStage++;
+  localStorage.setItem(learnKey,String(Math.min(learnStage,5)));
+  if(learnStage>=5)renderLearnFinish();
+  else renderLearn();
+}
+
+function renderAdd(){
+  addState={left:3,right:3,gathered:0,done:false};
+  scene.innerHTML=`
+    <div class="badge">1 / 5　まずは「ぜんぶ」を見る</div>
+    <h1>りんごを ひとつに あつめよう</h1>
+    <p class="story">左に3こ、右にも3こ。<br>りんごを指でつかんで、<strong>ぜんぶのかご</strong>へ入れてみよう。</p>
+    <div class="add-sources">
+      <div class="add-source"><div class="add-source-title">3こ</div><div class="add-source-items" id="addLeft"></div></div>
+      <div class="add-source"><div class="add-source-title">3こ</div><div class="add-source-items" id="addRight"></div></div>
+    </div>
+    <div class="add-target" id="addTarget">
+      <div class="add-target-title">🧺 ぜんぶのかご</div>
+      <div class="add-target-items" id="addTargetItems">ここに あつめよう</div>
+    </div>
+    <div class="feedback" id="addFeedback">👇 りんごをつかんで、かごへ動かそう！</div>
+    <div class="answer-box" id="answer">
+      <div class="answer-main">ぜんぶで 6こ！</div>
+      <div class="equation">3 ＋ 3 ＝ 6</div>
+      <div class="answer-sub">3こと3こを、ひとつに集めたら6こになったね。<br><strong>足し算は「集める」計算</strong>だよ。</div>
+      <div class="actions">${button('つぎへ →','next','next')}</div>
+    </div>`;
+  renderAddItems();
+  bind('next',finishLearnStage);
+}
+
+function renderAddItems(){
+  const left=document.getElementById('addLeft'),right=document.getElementById('addRight'),targetItems=document.getElementById('addTargetItems');
+  if(!left||!right||!targetItems)return;
+  left.innerHTML=Array.from({length:addState.left},()=>'<span class="drag-item add-drag" data-add-source="left" role="button" aria-label="りんごをかごへ入れる">🍎</span>').join('');
+  right.innerHTML=Array.from({length:addState.right},()=>'<span class="drag-item add-drag" data-add-source="right" role="button" aria-label="りんごをかごへ入れる">🍎</span>').join('');
+  targetItems.textContent=addState.gathered?repeat('🍎',addState.gathered):'ここに あつめよう';
+  document.querySelectorAll('.add-drag').forEach(el=>el.addEventListener('pointerdown',startAddDrag));
+}
+
+function startAddDrag(e){
+  if(addState.done)return;
+  e.preventDefault();
+  const source=e.currentTarget,group=source.dataset.addSource,pointerId=e.pointerId,target=document.getElementById('addTarget');
+  source.setPointerCapture(pointerId);
+  source.style.opacity='.25';
+  const ghost=document.createElement('div');
+  ghost.className='drag-ghost';
+  ghost.textContent='🍎';
+  document.body.appendChild(ghost);
+  let overTarget=false;
+  move(e);
+  function move(ev){
+    ghost.style.left=ev.clientX+'px';ghost.style.top=ev.clientY+'px';
+    const hit=document.elementFromPoint(ev.clientX,ev.clientY);
+    overTarget=!!(hit&&(hit===target||hit.closest?.('#addTarget')));
+    target.classList.toggle('drop-ready',overTarget);
+  }
+  function cleanup(){
+    target.classList.remove('drop-ready');
+    ghost.remove();source.style.opacity='1';
+    source.removeEventListener('pointermove',move);source.removeEventListener('pointerup',drop);source.removeEventListener('pointercancel',cancel);
+  }
+  function drop(){const ok=overTarget;cleanup();if(ok)collectApple(group)}
+  function cancel(){cleanup()}
+  source.addEventListener('pointermove',move);source.addEventListener('pointerup',drop);source.addEventListener('pointercancel',cancel);
+}
+
+function collectApple(group){
+  if(addState.done||addState[group]<=0)return;
+  addState[group]--;addState.gathered++;
+  const feedback=document.getElementById('addFeedback');
+  feedback.textContent=`かごに ${addState.gathered}こ あつまったよ！`;
+  renderAddItems();
+  if(addState.gathered===6){
+    addState.done=true;
+    document.getElementById('addTarget').classList.add('done');
+    feedback.textContent='🎉 3こと3こが、ひとつになった！';
+    document.getElementById('answer').style.display='block';
+  }
+}
+
+function startShare(problem,isLearn=false,learnIndex=0){
+  state={problem,isLearn,learnIndex,remaining:problem.total,counts:Array(problem.people).fill(0),done:false};
+  renderShareScene();
+}
+
+function renderShareScene(){
+  const p=state.problem;
+  const badge=state.isLearn?`${state.learnIndex+1} / 5　自分で「わける」`:'わけわけゲーム';
+  const title=state.isLearn?(state.learnIndex===1?'おやつを わけてみよう':'みんなに おなじだけ！'):`${p.item}を みんなに わけよう`;
+  scene.innerHTML=`
+    <div class="badge">${badge}</div>
+    <h1>${title}</h1>
+    <p class="story">${p.total}こを ${p.people}人に、<strong>おなじ数ずつ</strong> あげてみよう。<br>${state.isLearn?'おやつを ゆびでつかんで、あげたい子のところへ動かしてね。':'「1こずつ くばる」を押してね。'}</p>
+    <div class="pool"><div class="pool-title">まだ のこっているよ： <span id="remaining">${state.remaining}</span>こ</div><div class="pool-items" id="poolItems">${state.isLearn?'':repeat(p.item,state.remaining)}</div></div>
+    <div class="people" id="people"></div>
+    <div class="feedback" id="feedback">${state.isLearn?'👇 おやつをつかんで動かそう！':''}</div>
+    <div class="celebrate" id="celebrate"></div>
+    ${state.isLearn?'':'<div class="actions"><button class="share-btn" id="deal">👋 1こずつ くばる</button></div>'}
+    <div class="answer-box" id="shareAnswer"></div>
+    <div class="mini-note">${state.isLearn?'うまく置けなくても大丈夫。何回でも動かせるよ。':'計算はあとから出てくるよ。'}</div>`;
+  renderPeople();
+  if(!state.isLearn)bind('deal',dealRound);
+}
+
+function renderPeople(){
+  const p=state.problem,each=p.total/p.people,el=document.getElementById('people');
+  el.innerHTML=state.counts.map((count,i)=>`<div class="person ${count===each?'full':''}" data-person="${i}"><div class="face">${icons[i]}</div><div class="person-label">${i+1}人め</div><div class="person-items">${repeat(p.item,count)||'　'}</div><div class="person-label">${count}こ</div></div>`).join('');
+  document.getElementById('remaining').textContent=state.remaining;
+  const pool=document.getElementById('poolItems');
+  if(state.isLearn)renderDragPool();
+  else if(pool)pool.textContent=repeat(p.item,state.remaining)||'ぜんぶ くばれた！';
+}
+
+function renderDragPool(){
+  const pool=document.getElementById('poolItems');if(!pool)return;
+  if(state.remaining===0){pool.innerHTML='<strong>ぜんぶ くばれた！</strong>';return}
+  pool.innerHTML=Array.from({length:state.remaining},(_,i)=>`<span class="drag-item" data-drag="${i}" role="button" aria-label="${state.problem.item}を配る">${state.problem.item}</span>`).join('');
+  document.querySelectorAll('.drag-item:not(.add-drag)').forEach(el=>el.addEventListener('pointerdown',startDrag));
+}
+
+function startDrag(e){
+  if(state.done)return;e.preventDefault();
+  const source=e.currentTarget,pointerId=e.pointerId;
+  source.setPointerCapture(pointerId);source.style.opacity='.25';
+  const ghost=document.createElement('div');ghost.className='drag-ghost';ghost.textContent=state.problem.item;document.body.appendChild(ghost);
+  let hover=null;moveGhost(e);
+  function moveGhost(ev){
+    ghost.style.left=ev.clientX+'px';ghost.style.top=ev.clientY+'px';
+    document.querySelectorAll('.person').forEach(x=>x.classList.remove('drop-ready'));
+    const hit=document.elementFromPoint(ev.clientX,ev.clientY);hover=hit&&hit.closest?hit.closest('.person'):null;if(hover)hover.classList.add('drop-ready');
+  }
+  function cleanup(){document.querySelectorAll('.person').forEach(x=>x.classList.remove('drop-ready'));ghost.remove();source.style.opacity='1';source.removeEventListener('pointermove',moveGhost);source.removeEventListener('pointerup',drop);source.removeEventListener('pointercancel',cancel)}
+  function drop(){const target=hover;cleanup();if(target)giveTo(Number(target.dataset.person))}
+  function cancel(){cleanup()}
+  source.addEventListener('pointermove',moveGhost);source.addEventListener('pointerup',drop);source.addEventListener('pointercancel',cancel);
+}
+
+function giveTo(i){
+  if(state.done||state.remaining<=0)return;
+  const p=state.problem,each=p.total/p.people,feedback=document.getElementById('feedback');
+  if(state.counts[i]>=each){
+    feedback.textContent=`${icons[i]}は もう${each}こ！ ほかの子にも あげてみよう`;
+    const card=document.querySelector(`[data-person="${i}"]`);if(card){card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),550)}
+    return;
+  }
+  state.counts[i]++;state.remaining--;feedback.textContent=`${icons[i]}に 1こ あげたよ！`;renderPeople();if(state.remaining===0)completeShare();
+}
+
+function dealRound(){
+  if(state.done)return;const p=state.problem;if(state.remaining<p.people)return;
+  for(let i=0;i<p.people;i++)state.counts[i]++;
+  state.remaining-=p.people;renderPeople();if(state.remaining===0)completeShare();
+}
+
+function completeShare(){
+  state.done=true;
+  const deal=document.getElementById('deal');if(deal)deal.style.display='none';
+  document.getElementById('celebrate').textContent='🎉 みんな おなじ！';
+  const p=state.problem,each=p.total/p.people,ans=document.getElementById('shareAnswer');
+  ans.style.display='block';
+  ans.innerHTML=`<div class="answer-main">ひとり ${each}こずつ！</div><div class="answer-sub">${p.total}こを ${p.people}人に同じ数ずつ分けたら、ひとり ${each}こになったね。</div><div class="equation">${p.total} ÷ ${p.people} = ${each}</div><div class="meaning"><div class="all">${p.total}<br>ぜんぶの数</div><div class="groups">${p.people}<br>分ける人数</div><div class="each">${each}<br>ひとり分</div></div><div class="actions">${button(state.isLearn?'つぎへ →':'もう1回！','next','afterShare')}</div>`;
+  bind('afterShare',()=>{if(state.isLearn)finishLearnStage();else{localStorage.setItem('warizanShareStars',String(Number(localStorage.getItem('warizanShareStars')||0)+1));startRandomShare()}});
+}
+
+function renderEquationMeaning(){
+  setProgress(60);
+  scene.innerHTML=`<div class="badge">4 / 5　これが「わり算」</div><h1>さっきの「わける」を式にすると…</h1><p class="story">6このいちごを、3人に同じ数ずつ分けたら、ひとり2こだったね。</p><div class="equation">6 ÷ 3 = 2</div><div class="meaning"><div class="all">6<br>ぜんぶの数</div><div class="groups">3<br>分ける人数</div><div class="each">2<br>ひとり分</div></div><div class="answer-box" style="display:block;margin-top:18px"><div class="answer-main">「÷」は、おなじ数ずつ わけるしるし</div><div class="answer-sub">さっき自分の指でやった「わけわけ」と同じことだよ。</div></div><div class="actions">${button('つぎへ →','next','next')}</div>`;
+  bind('next',finishLearnStage);
+}
+
+function renderMultiplyLink(){
+  setProgress(80);
+  scene.innerHTML=`<div class="badge">5 / 5　かけ算と つながる</div><h1>かけ算を うしろから見ると？</h1><p class="story">2こずつのグループが3つあるよ。</p><div class="groups-demo"><div class="group-demo"><small>1グループ</small>🍬🍬</div><div class="group-demo"><small>2グループ</small>🍬🍬</div><div class="group-demo"><small>3グループ</small>🍬🍬</div></div><div class="equation">2 × 3 = 6</div><div class="answer-box" style="display:block"><div class="answer-sub">ぜんぶ6こを、3グループに戻すと…</div><div class="equation">6 ÷ 3 = 2</div><div class="answer-main">わり算は、かけ算の「ぎゃく」みたい！</div></div><div class="actions">${button('できた！','next','next')}</div>`;
+  bind('next',finishLearnStage);
+}
+
+function renderLearnFinish(){
+  setProgress(100);localStorage.setItem(learnKey,'5');
+  scene.innerHTML=`<div class="badge">ぜんぶ クリア！</div><div style="font-size:72px">🏆</div><h1>わり算の ひみつを見つけた！</h1><p class="story">「ぜんぶの数」を「同じ数ずつ分ける」と、ひとり分が分かる。これがわり算だよ。</p><div class="answer-box" style="display:block"><div class="answer-main">6 ÷ 3 = 2</div></div><div class="actions"><a href="play.html?mode=share" style="text-decoration:none">${button('🍬 わけわけゲームへ','share-btn','dummy1')}</a><a href="challenge.html" style="text-decoration:none">${button('➗ 5問チャレンジ','primary','dummy2')}</a></div><div class="actions">${button('もういちど はじめから','next','again')}</div>`;
+  bind('again',()=>{localStorage.setItem(learnKey,'0');learnStage=0;renderLearn()});
+}
+
+function startRandomShare(){
+  setProgress(100);let last=Number(sessionStorage.getItem('lastShareProblem')||-1),idx;
+  do{idx=Math.floor(Math.random()*shareProblems.length)}while(shareProblems.length>1&&idx===last);
+  sessionStorage.setItem('lastShareProblem',String(idx));startShare(shareProblems[idx],false,0);
+}
+
+if(mode==='share')startRandomShare();
+else if(Number(localStorage.getItem(learnKey)||0)>=5)renderLearnFinish();
+else renderLearn();
 </script>
 </body>
 </html>
