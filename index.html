@@ -3,86 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>わり算トレーニング</title>
+<title>わけわけランド</title>
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif; background:linear-gradient(135deg,#f5f7ff,#eefbf6); min-height:100vh; color:#263238; }
-  .wrap { width:min(720px,94%); margin:0 auto; padding:24px 0 40px; }
-  .title { text-align:center; font-size:clamp(28px,7vw,46px); margin:8px 0 4px; }
-  .subtitle { text-align:center; color:#64748b; margin:0 0 20px; }
-  .card { background:rgba(255,255,255,.95); border-radius:24px; padding:22px; box-shadow:0 14px 40px rgba(44,62,80,.12); margin-bottom:16px; }
-  .controls { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-  button { border:none; border-radius:15px; padding:13px 12px; font-size:16px; font-weight:700; cursor:pointer; }
-  button:active { transform:scale(.98); }
-  .level { background:#edf2f7; color:#334155; }
-  .level.active { background:#4f46e5; color:white; box-shadow:0 5px 14px rgba(79,70,229,.25); }
-  .status { display:flex; justify-content:space-between; gap:10px; font-weight:700; color:#475569; margin-bottom:10px; }
-  .progress { width:100%; height:10px; background:#e8edf3; border-radius:999px; overflow:hidden; }
-  .progress > div { height:100%; width:0; background:linear-gradient(90deg,#4f46e5,#06b6d4); transition:width .25s; }
-  .question-card { text-align:center; }
-  .question { font-size:clamp(40px,11vw,72px); font-weight:800; margin:20px 0; }
-  .choices { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; max-width:480px; margin:18px auto 0; }
-  .choice { min-height:70px; background:#eef2ff; color:#312e81; font-size:30px; border:3px solid transparent; }
-  .choice:hover { border-color:#a5b4fc; }
-  .choice.choice-correct { background:#dcfce7; color:#166534; border-color:#22c55e; }
-  .choice.choice-wrong { background:#fee2e2; color:#991b1b; border-color:#ef4444; }
-  .choice:disabled { cursor:default; opacity:1; }
-  .next { background:#4f46e5; color:white; min-width:120px; }
-  .hint { background:#f59e0b; color:white; }
-  .message { min-height:54px; font-size:22px; font-weight:800; padding-top:15px; }
-  .correct { color:#16a34a; } .wrong { color:#dc2626; }
-  .hint-text { color:#64748b; font-size:16px; min-height:24px; margin-top:6px; }
-  .bottom-buttons { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
-  .restart { background:#e2e8f0; color:#334155; }
-  .result { display:none; text-align:center; }
-  .result .big { font-size:64px; margin:8px 0; }
-  .result h2 { font-size:32px; margin-bottom:4px; }
-  .result p { font-size:20px; }
-  .stars { font-size:40px; letter-spacing:6px; }
-  .problem-diagram { margin:4px auto 22px; padding:16px; max-width:620px; background:#f8fafc; border:2px solid #e2e8f0; border-radius:18px; }
-  .diagram-caption { font-weight:800; color:#475569; margin-bottom:12px; line-height:1.6; }
-  .problem-groups { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:stretch; }
-  .problem-group { min-width:102px; background:white; border:2px solid #c7d2fe; border-radius:14px; padding:9px; }
-  .problem-group-title { font-size:12px; font-weight:800; color:#6366f1; margin-bottom:7px; }
-  .problem-items { display:grid; grid-template-columns:repeat(5,16px); gap:4px; justify-content:center; }
-  .problem-item { width:16px; height:16px; background:#22c55e; border-radius:50%; }
-  .diagram-summary { margin-top:12px; font-size:15px; font-weight:800; color:#334155; line-height:1.6; }
-  .diagram-too-large { padding:10px; color:#64748b; font-weight:700; }
-  @media(max-width:500px){ .controls{grid-template-columns:repeat(2,1fr)} .card{padding:18px} .choices{gap:10px} .choice{min-height:64px;font-size:28px} }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;background:linear-gradient(180deg,#fff9e8 0%,#eef9ff 52%,#f6f1ff 100%);min-height:100vh;color:#263238}
+  .wrap{width:min(760px,94%);margin:0 auto;padding:24px 0 42px}
+  .hero{text-align:center;padding:20px 8px 8px}
+  .hero-emoji{font-size:64px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.08))}
+  h1{font-size:clamp(36px,10vw,58px);margin:8px 0 4px;letter-spacing:.02em}
+  .lead{font-size:clamp(17px,4.5vw,21px);line-height:1.8;color:#536471;margin:0 auto 18px;max-width:620px}
+  .note{display:inline-block;background:#fff;border:2px solid #fde68a;border-radius:999px;padding:9px 15px;font-weight:800;color:#92400e;margin-bottom:18px}
+  .menu{display:grid;gap:14px}
+  .card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.96);border-radius:26px;padding:20px;box-shadow:0 14px 34px rgba(67,78,99,.12);border:3px solid transparent;transition:.15s transform,.15s box-shadow}
+  .card:active{transform:scale(.985)}
+  .card.primary{border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#ffffff)}
+  .card.share{border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#ffffff)}
+  .card.challenge{border-color:#c4b5fd;background:linear-gradient(135deg,#f5f3ff,#ffffff)}
+  .row{display:flex;gap:16px;align-items:center}
+  .icon{width:78px;height:78px;display:grid;place-items:center;border-radius:22px;font-size:42px;flex:0 0 auto;background:#fff;box-shadow:inset 0 0 0 2px rgba(15,23,42,.05)}
+  .copy{min-width:0;flex:1}
+  .eyebrow{font-size:13px;font-weight:900;letter-spacing:.08em;color:#64748b;margin-bottom:4px}
+  .title{font-size:clamp(23px,6vw,31px);font-weight:900;margin:0 0 6px}
+  .desc{margin:0;color:#64748b;line-height:1.65;font-weight:650}
+  .go{font-size:30px;color:#94a3b8;font-weight:900}
+  .stars{margin-top:11px;font-weight:900;color:#d97706}
+  .parent{margin-top:18px;background:rgba(255,255,255,.7);border:2px dashed #cbd5e1;border-radius:20px;padding:15px 17px;color:#64748b;line-height:1.7;font-size:14px}
+  .parent strong{color:#334155}
+  @media(max-width:520px){.card{padding:17px}.icon{width:64px;height:64px;font-size:34px;border-radius:18px}.row{gap:12px}.go{font-size:24px}.desc{font-size:14px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1 class="title">➗ わり算トレーニング</h1>
-  <p class="subtitle">10問チャレンジ！何問できるかな？</p>
-  <div class="card" style="text-align:center;"><h2 style="margin-top:0;">はじめてのわり算</h2><p style="color:#64748b;line-height:1.7;">まずは図を見ながら、わり算のしくみを学ぼう。</p><a href="learn.html" style="display:inline-block;background:#4f46e5;color:white;text-decoration:none;font-weight:800;padding:13px 20px;border-radius:15px;">📘 わり算のしくみを見る</a></div>
-  <div class="card"><div class="controls"><button class="level active" data-level="basic">🔰 きほん</button><button class="level" data-level="easy">🌱 かんたん</button><button class="level" data-level="normal">🔥 ふつう</button><button class="level" data-level="hard">🚀 むずかしい</button></div></div>
-  <div class="card"><div class="status"><span id="count">1 / 10 問</span><span id="score">正解 0</span></div><div class="progress"><div id="bar"></div></div></div>
-  <div class="card question-card" id="game">
-    <div class="question" id="question">12 ÷ 3 = ?</div>
-    <div class="problem-diagram"><div class="diagram-caption" id="diagramCaption"></div><div class="problem-groups" id="problemGroups"></div><div class="diagram-summary" id="diagramSummary"></div></div>
-    <div class="choices" id="choices"></div>
-    <div class="message" id="message"></div><div class="hint-text" id="hintText"></div>
-    <div class="bottom-buttons"><button class="hint" id="hint">💡 ヒント</button><button class="next" id="next" style="display:none;">次の問題 →</button><button class="restart" id="restart">最初から</button></div>
-  </div>
-  <div class="card result" id="result"><div class="big" id="resultEmoji">🎉</div><h2>チャレンジ終了！</h2><div class="stars" id="stars">⭐⭐⭐</div><p id="resultText"></p><button class="next" id="again">もう一回やる</button></div>
+  <section class="hero">
+    <div class="hero-emoji">🍪 🐰 🍎</div>
+    <h1>わけわけランド</h1>
+    <p class="lead">かずを あつめて、みんなに おなじだけ わけてみよう。<br>あそんでいるうちに、わり算の「なぜ？」が見えてくるよ。</p>
+    <div class="note">💡 さいしょは「÷」が分からなくてもだいじょうぶ</div>
+  </section>
+
+  <main class="menu">
+    <a class="card primary" href="play.html?mode=learn">
+      <div class="row">
+        <div class="icon">🌟</div>
+        <div class="copy">
+          <div class="eyebrow">おすすめ・ここから</div>
+          <h2 class="title">はじめから</h2>
+          <p class="desc">たす → かたまり → わける → わり算、の順にゆっくり遊ぼう。</p>
+          <div class="stars" id="learnProgress">⭐ まだこれから</div>
+        </div>
+        <div class="go">›</div>
+      </div>
+    </a>
+
+    <a class="card share" href="play.html?mode=share">
+      <div class="row">
+        <div class="icon">🍬</div>
+        <div class="copy">
+          <div class="eyebrow">すぐ遊べる</div>
+          <h2 class="title">わけわけゲーム</h2>
+          <p class="desc">おやつを1こずつ配って、みんなを同じ数にしよう。</p>
+          <div class="stars" id="shareStars">🏅 0こ</div>
+        </div>
+        <div class="go">›</div>
+      </div>
+    </a>
+
+    <a class="card challenge" href="challenge.html">
+      <div class="row">
+        <div class="icon">➗</div>
+        <div class="copy">
+          <div class="eyebrow">分かってきたら</div>
+          <h2 class="title">わり算チャレンジ</h2>
+          <p class="desc">図を見ながら5問だけ。むずかしかったら、いつでも戻ってOK。</p>
+        </div>
+        <div class="go">›</div>
+      </div>
+    </a>
+  </main>
+
+  <div class="parent"><strong>おうちの方へ：</strong> このアプリでは、いきなり式を解かせません。まず「同じ数ずつ分ける」体験をしてから、最後に式と結びつけます。間違いよりも「自分で分けられた！」を増やす設計です。</div>
 </div>
 <script>
-let level="basic",current=1,score=0,a=12,b=3,correct=4,answered=false;
-const question=document.getElementById("question"),choices=document.getElementById("choices"),message=document.getElementById("message"),hintText=document.getElementById("hintText"),count=document.getElementById("count"),scoreEl=document.getElementById("score"),bar=document.getElementById("bar"),nextBtn=document.getElementById("next");
-document.querySelectorAll(".level").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".level").forEach(x=>x.classList.remove("active"));btn.classList.add("active");level=btn.dataset.level;restart();}));
-function rand(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
-function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=rand(0,i);[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
-function makeQuestion(){let quotient,divisor;if(level==="basic"){const basics=[];for(let dividend=2;dividend<12;dividend++){for(let d=2;d<=dividend;d++){if(dividend%d===0)basics.push([dividend,d,dividend/d]);}}const picked=basics[rand(0,basics.length-1)];a=picked[0];b=picked[1];correct=picked[2];}else if(level==="easy"){divisor=rand(2,9);quotient=rand(1,9);}else if(level==="normal"){divisor=rand(2,12);quotient=rand(2,15);}else{divisor=rand(3,25);quotient=rand(3,30);}if(level!=="basic"){a=divisor*quotient;b=divisor;correct=quotient;}question.textContent=`${a} ÷ ${b} = ?`;renderProblemDiagram();renderChoices();answered=false;message.textContent="";message.className="message";hintText.textContent="";nextBtn.style.display="none";updateStatus();}
-function renderChoices(){const values=new Set([correct]);let distance=1;while(values.size<4){if(correct-distance>=1)values.add(correct-distance);if(values.size<4)values.add(correct+distance);distance++;}choices.innerHTML="";shuffle([...values]).forEach(value=>{const btn=document.createElement("button");btn.className="choice";btn.textContent=value;btn.dataset.value=value;btn.addEventListener("click",()=>chooseAnswer(value,btn));choices.appendChild(btn);});}
-function chooseAnswer(value,clicked){if(answered)return;answered=true;document.querySelectorAll(".choice").forEach(btn=>{btn.disabled=true;if(Number(btn.dataset.value)===correct)btn.classList.add("choice-correct");});if(value===correct){score++;message.textContent="⭕ 正解！すごい！";message.className="message correct";}else{clicked.classList.add("choice-wrong");message.textContent=`❌ おしい！答えは ${correct}`;message.className="message wrong";}scoreEl.textContent=`正解 ${score}`;if(current<10)nextBtn.style.display="inline-block";else{bar.style.width="100%";setTimeout(showResult,500);}}
-function renderProblemDiagram(){const caption=document.getElementById("diagramCaption"),groups=document.getElementById("problemGroups"),summary=document.getElementById("diagramSummary");caption.textContent=`${a}こを、${b}このグループに同じ数ずつ分けます。`;groups.innerHTML="";for(let g=0;g<b;g++){const box=document.createElement("div");box.className="problem-group";const title=document.createElement("div");title.className="problem-group-title";title.textContent=`${g+1}グループ目`;box.appendChild(title);const items=document.createElement("div");items.className="problem-items";if(a<=120){for(let i=0;i<correct;i++){const dot=document.createElement("span");dot.className="problem-item";items.appendChild(dot);}}else{const text=document.createElement("div");text.className="diagram-too-large";text.textContent=`● × ${correct}`;items.appendChild(text);}box.appendChild(items);groups.appendChild(box);}summary.textContent="それぞれに同じ数だけ入ります。1グループに何こ入るかな？";}
-function updateStatus(){count.textContent=`${current} / 10 問`;scoreEl.textContent=`正解 ${score}`;bar.style.width=`${((current-1)/10)*100}%`;}
-function next(){if(!answered)return;current++;makeQuestion();}
-function showHint(){if(answered)return;hintText.textContent=`${b} × 何 = ${a} になるかな？ 図の1グループ分も数えてみよう。`;}
-function showResult(){document.getElementById("game").style.display="none";document.getElementById("result").style.display="block";bar.style.width="100%";let stars="",emoji="",text="";if(score===10){stars="⭐⭐⭐⭐⭐";emoji="🏆";text="10問中10問正解！パーフェクト！";}else if(score>=8){stars="⭐⭐⭐⭐";emoji="🎉";text=`10問中${score}問正解！かなりできてる！`;}else if(score>=5){stars="⭐⭐⭐";emoji="😊";text=`10問中${score}問正解！もう一回やればもっと伸びるよ！`;}else{stars="⭐⭐";emoji="💪";text=`10問中${score}問正解！練習すればすぐ上手になるよ！`;}document.getElementById("stars").textContent=stars;document.getElementById("resultEmoji").textContent=emoji;document.getElementById("resultText").textContent=text;}
-function restart(){current=1;score=0;document.getElementById("game").style.display="block";document.getElementById("result").style.display="none";makeQuestion();}
-nextBtn.addEventListener("click",next);document.getElementById("hint").addEventListener("click",showHint);document.getElementById("restart").addEventListener("click",restart);document.getElementById("again").addEventListener("click",restart);makeQuestion();
+const learn=Number(localStorage.getItem('warizanLearnStage')||0);
+const stars=Number(localStorage.getItem('warizanShareStars')||0);
+const lp=document.getElementById('learnProgress');
+lp.textContent=learn>=5?'🏆 ぜんぶクリア！':learn>0?`⭐ ${learn}/5 までクリア`:'⭐ まだこれから';
+document.getElementById('shareStars').textContent=`🏅 ${stars}こ`;
 </script>
 </body>
 </html>
