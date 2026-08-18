@@ -5,90 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>わけわけランド</title>
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;background:linear-gradient(180deg,#fff9e8 0%,#eef9ff 52%,#f6f1ff 100%);min-height:100vh;color:#263238}
-  .wrap{width:min(760px,94%);margin:0 auto;padding:24px 0 42px}
-  .hero{text-align:center;padding:20px 8px 8px}
-  .hero-emoji{font-size:64px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.08))}
-  h1{font-size:clamp(36px,10vw,58px);margin:8px 0 4px;letter-spacing:.02em}
-  .lead{font-size:clamp(17px,4.5vw,21px);line-height:1.8;color:#536471;margin:0 auto 18px;max-width:620px}
-  .note{display:inline-block;background:#fff;border:2px solid #fde68a;border-radius:999px;padding:9px 15px;font-weight:800;color:#92400e;margin-bottom:18px}
-  .menu{display:grid;gap:14px}
-  .card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.96);border-radius:26px;padding:20px;box-shadow:0 14px 34px rgba(67,78,99,.12);border:3px solid transparent;transition:.15s transform,.15s box-shadow}
-  .card:active{transform:scale(.985)}
-  .card.primary{border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#ffffff)}
-  .card.share{border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#ffffff)}
-  .card.challenge{border-color:#c4b5fd;background:linear-gradient(135deg,#f5f3ff,#ffffff)}
-  .row{display:flex;gap:16px;align-items:center}
-  .icon{width:78px;height:78px;display:grid;place-items:center;border-radius:22px;font-size:42px;flex:0 0 auto;background:#fff;box-shadow:inset 0 0 0 2px rgba(15,23,42,.05)}
-  .copy{min-width:0;flex:1}
-  .eyebrow{font-size:13px;font-weight:900;letter-spacing:.08em;color:#64748b;margin-bottom:4px}
-  .title{font-size:clamp(23px,6vw,31px);font-weight:900;margin:0 0 6px}
-  .desc{margin:0;color:#64748b;line-height:1.65;font-weight:650}
-  .go{font-size:30px;color:#94a3b8;font-weight:900}
-  .stars{margin-top:11px;font-weight:900;color:#d97706}
-  .parent{margin-top:18px;background:rgba(255,255,255,.7);border:2px dashed #cbd5e1;border-radius:20px;padding:15px 17px;color:#64748b;line-height:1.7;font-size:14px}
-  .parent strong{color:#334155}
-  @media(max-width:520px){.card{padding:17px}.icon{width:64px;height:64px;font-size:34px;border-radius:18px}.row{gap:12px}.go{font-size:24px}.desc{font-size:14px}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;background:linear-gradient(180deg,#fff9e8 0%,#eef9ff 52%,#f6f1ff 100%);min-height:100vh;color:#263238}.wrap{width:min(760px,94%);margin:0 auto;padding:24px 0 42px}.hero{text-align:center;padding:20px 8px 8px}.hero-emoji{font-size:64px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.08))}h1{font-size:clamp(36px,10vw,58px);margin:8px 0 4px;letter-spacing:.02em}.lead{font-size:clamp(17px,4.5vw,21px);line-height:1.8;color:#536471;margin:0 auto 18px;max-width:620px}.note{display:inline-block;background:#fff;border:2px solid #fde68a;border-radius:999px;padding:9px 15px;font-weight:800;color:#92400e;margin-bottom:18px}.menu{display:grid;gap:14px}.card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.96);border-radius:26px;padding:20px;box-shadow:0 14px 34px rgba(67,78,99,.12);border:3px solid transparent;transition:.15s transform}.card:active{transform:scale(.985)}.card.primary{border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#ffffff)}.card.share{border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#ffffff)}.card.challenge{border-color:#c4b5fd;background:linear-gradient(135deg,#f5f3ff,#ffffff)}.row{display:flex;gap:16px;align-items:center}.icon{width:78px;height:78px;display:grid;place-items:center;border-radius:22px;font-size:42px;flex:0 0 auto;background:#fff;box-shadow:inset 0 0 0 2px rgba(15,23,42,.05)}.copy{min-width:0;flex:1}.eyebrow{font-size:13px;font-weight:900;letter-spacing:.08em;color:#64748b;margin-bottom:4px}.title{font-size:clamp(23px,6vw,31px);font-weight:900;margin:0 0 6px}.desc{margin:0;color:#64748b;line-height:1.65;font-weight:650}.go{font-size:30px;color:#94a3b8;font-weight:900}.stars{margin-top:11px;font-weight:900;color:#d97706}.friends{margin-top:10px;display:flex;gap:5px;align-items:center;font-size:25px}.friends .locked{filter:grayscale(1);opacity:.25}.parent{margin-top:18px;background:rgba(255,255,255,.7);border:2px dashed #cbd5e1;border-radius:20px;padding:15px 17px;color:#64748b;line-height:1.7;font-size:14px}.parent strong{color:#334155}@media(max-width:520px){.card{padding:17px}.icon{width:64px;height:64px;font-size:34px;border-radius:18px}.row{gap:12px}.go{font-size:24px}.desc{font-size:14px}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <section class="hero">
-    <div class="hero-emoji">🍪 🐰 🍎</div>
-    <h1>わけわけランド</h1>
-    <p class="lead">かずを あつめて、みんなに おなじだけ わけてみよう。<br>あそんでいるうちに、わり算の「なぜ？」が見えてくるよ。</p>
-    <div class="note">💡 さいしょは「÷」が分からなくてもだいじょうぶ</div>
-  </section>
-
-  <main class="menu">
-    <a class="card primary" href="play.html?mode=learn">
-      <div class="row">
-        <div class="icon">🌟</div>
-        <div class="copy">
-          <div class="eyebrow">おすすめ・ここから</div>
-          <h2 class="title">はじめから</h2>
-          <p class="desc">たす → かたまり → わける → わり算、の順にゆっくり遊ぼう。</p>
-          <div class="stars" id="learnProgress">⭐ まだこれから</div>
-        </div>
-        <div class="go">›</div>
-      </div>
-    </a>
-
-    <a class="card share" href="play.html?mode=share">
-      <div class="row">
-        <div class="icon">🍬</div>
-        <div class="copy">
-          <div class="eyebrow">すぐ遊べる</div>
-          <h2 class="title">わけわけゲーム</h2>
-          <p class="desc">おやつを1こずつ配って、みんなを同じ数にしよう。</p>
-          <div class="stars" id="shareStars">🏅 0こ</div>
-        </div>
-        <div class="go">›</div>
-      </div>
-    </a>
-
-    <a class="card challenge" href="challenge.html">
-      <div class="row">
-        <div class="icon">➗</div>
-        <div class="copy">
-          <div class="eyebrow">分かってきたら</div>
-          <h2 class="title">わり算チャレンジ</h2>
-          <p class="desc">図を見ながら5問だけ。むずかしかったら、いつでも戻ってOK。</p>
-        </div>
-        <div class="go">›</div>
-      </div>
-    </a>
-  </main>
-
-  <div class="parent"><strong>おうちの方へ：</strong> このアプリでは、いきなり式を解かせません。まず「同じ数ずつ分ける」体験をしてから、最後に式と結びつけます。間違いよりも「自分で分けられた！」を増やす設計です。</div>
-</div>
+<div class="wrap"><section class="hero"><div class="hero-emoji">🍪 🐰 🍎</div><h1>わけわけランド</h1><p class="lead">かずを あつめて、みんなに おなじだけ わけてみよう。<br>あそんでいるうちに、わり算の「なぜ？」が見えてくるよ。</p><div class="note">💡 さいしょは「÷」が分からなくてもだいじょうぶ</div></section>
+<main class="menu">
+<a class="card primary" href="play.html?mode=learn"><div class="row"><div class="icon">🌟</div><div class="copy"><div class="eyebrow">おすすめ・ここから</div><h2 class="title">はじめから</h2><p class="desc">集める → 手でわける → わり算 → かけ算、の順にゆっくり遊ぼう。</p><div class="stars" id="learnProgress">⭐ まだこれから</div></div><div class="go">›</div></div></a>
+<a class="card share" href="play.html?mode=share"><div class="row"><div class="icon">🌳</div><div class="copy"><div class="eyebrow">おやつを配ってなかまを増やそう</div><h2 class="title">森のおやつパーティー</h2><p class="desc">おやつを手で配ろう。上手にわけると、新しい動物が遊びにくるよ。</p><div class="friends" id="forestFriends"></div><div class="stars" id="forestProgress"></div></div><div class="go">›</div></div></a>
+<a class="card challenge" href="challenge.html"><div class="row"><div class="icon">➗</div><div class="copy"><div class="eyebrow">分かってきたら</div><h2 class="title">わり算チャレンジ</h2><p class="desc">図を見ながら5問だけ。むずかしかったら、いつでも戻ってOK。</p></div><div class="go">›</div></div></a>
+</main><div class="parent"><strong>おうちの方へ：</strong> まず手を動かして「集める」「同じだけ配る」を体験します。式はあとから。序盤は4〜6個中心で、慣れてから少しずつ数と考え方を増やします。</div></div>
 <script>
-const learn=Number(localStorage.getItem('warizanLearnStage')||0);
-const stars=Number(localStorage.getItem('warizanShareStars')||0);
-const lp=document.getElementById('learnProgress');
-lp.textContent=learn>=5?'🏆 ぜんぶクリア！':learn>0?`⭐ ${learn}/5 までクリア`:'⭐ まだこれから';
-document.getElementById('shareStars').textContent=`🏅 ${stars}こ`;
+const learn=Number(localStorage.getItem('warizanLearnStageV3')||0),lp=document.getElementById('learnProgress');lp.textContent=learn>=5?'🏆 ぜんぶクリア！':learn>0?`⭐ ${learn}/5 までクリア`:'⭐ まだこれから';
+const animalIcons=['🐰','🐯','🐼','🦊','🐻'];let forest={step:0,friends:1,helps:0,partyWins:0};try{const saved=JSON.parse(localStorage.getItem('warizanForestPartyV1')||'null');if(saved)forest={...forest,...saved}}catch(e){}document.getElementById('forestFriends').innerHTML=animalIcons.map((a,i)=>`<span class="${i<forest.friends?'':'locked'}">${i<forest.friends?a:'❔'}</span>`).join('');document.getElementById('forestProgress').textContent=forest.step>=9?`🎉 森のパーティー開催中！`:`🍪 おてつだい ${forest.helps}かい`;
 </script>
 </body>
 </html>
